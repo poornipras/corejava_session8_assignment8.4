@@ -1,0 +1,44 @@
+Write a program to count number of vowels in a text file.
+
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class countvowels 
+{
+public static void main(String[] args) throws FileNotFoundException
+{
+	 final  String name="Testing.txt";	
+
+try {
+	FileOutputStream wr = new FileOutputStream(name);
+	String s="Hello..There are 5 vowels in english language";
+	byte[] b=s.getBytes();
+	wr.write(b);
+	wr.close();
+    } 
+catch (FileNotFoundException e) {} 
+catch (IOException e) {}
+	
+try {
+	FileInputStream reader=new FileInputStream(name);
+	int i=0;
+	int counter=0;
+	while((i=reader.read())!=-1)
+	{  
+	     System.out.println((char)i); 
+	     if((char)i=='a' || (char)i=='e'||(char)i=='i' ||(char)i=='o' ||(char)i=='u')
+	     {
+	    	 counter++;	    	 
+	     }
+	     
+	 }  	
+	 System.out.println("There are"+counter+" vowels in this document "+name);
+    } 
+catch (IOException e) {}
+ }	
+
+}
+
